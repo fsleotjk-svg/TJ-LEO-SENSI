@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Fire Sensitivity Bot 2026</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #fff;
+      padding: 20px;
+    }
+    .box {
+      max-width: 420px;
+      margin: auto;
+      background: #020617;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 15px;
+    }
+    button {
+      background: #22c55e;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 15px;
+      background: #020617;
+      padding: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Free Fire Sensitivity Bot 2026</h2>
+
+  <input id="phone" placeholder="Phone name (e.g. Redmi Note 12)">
+
+  <select id="headshot">
+    <option value="97">97% Headshot</option>
+    <option value="95">95% Headshot</option>
+    <option value="90">90% Headshot</option>
+  </select>
+
+  <select id="recoil">
+    <option value="0">0% Recoil</option>
+    <option value="2">2% Recoil</option>
+  </select>
+
+  <select id="aimHead">
+    <option value="100">100% Aim Head</option>
+    <option value="95">95% Aim Head</option>
+  </select>
+
+  <select id="aimLock">
+    <option value="100">100% Aim Lock</option>
+    <option value="95">95% Aim Lock</option>
+  </select>
+
+  <button onclick="generate()">Generate Sensitivity</button>
+
+  <div class="result" id="output"></div>
+</div>
+
+<script>
+function clamp(v, min, max) {
+  return Math.max(min, Math.min(max, v));
+}
+
+function getPhonePower(phone) {
+  phone = phone.toLowerCase();
+  if (phone.includes("iphone 13") || phone.includes("iphone 14") || phone.includes("snapdragon 8")) return 1.15;
+  if (phone.includes("redmi") || phone.includes("samsung a") || phone.includes("snapdragon 7")) return 1.0;
+  return 0.9;
+}
+
+function generate() {
+  const phone = document.getElementById("phone").value;
+  const headshot = +document.getElementById("headshot").value;
+  const recoil = +document.getElementById("recoil").value;
+  const aimHead = +document.getElementById("aimHead").value;
+  const aimLock = +document.getElementById("aimLock").value;
+
+  const power = getPhonePower(phone);
+
+  const headBoost = (headshot - 90) * 1.8;
+  const recoilReduce = recoil * 6;
+  const aimBoost = ((aimHead - 95) + (aimLock - 95)) * 1.5;
+
+  const general = clamp((120 + headBoost + aimBoost - recoilReduce) * power, 0, 200);
+  const redDot = clamp((110 + headBoost - recoilReduce) * power, 0, 200);
+  const scope2x = clamp((100 + headBoost - recoilReduce) * power, 0, 200);
+  const scope4x = clamp((90 + headBoost - recoilReduce) * power, 0, 200);
+  const awm = clamp((80 + headBoost - recoilReduce) * power, 0, 200);
+  const freeLook = clamp((70 + aimBoost) * power, 0, 200);
+
+  const fireBtn = clamp(40 + (power - 0.9) * 75, 40, 55).toFixed(1);
+
+  document.getElementById("output").innerHTML = `
+    <b>Phone:</b> ${phone}<br>
+    <b>General:</b> ${Math.round(general)}<br>
+    <b>Red Dot:</b> ${Math.round(redDot)}<br>
+    <b>2x Scope:</b> ${Math.round(scope2x)}<br>
+    <b>4x Scope:</b> ${Math.round(scope4x)}<br>
+    <b>AWM Scope:</b> ${Math.round(awm)}<br>
+    <b>Free Look:</b> ${Math.round(freeLook)}<br>
+    <b>Fire Button:</b> ${fireBtn}%
+  `;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TOP 1 WORLD FF SENSITIVITY</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+        background: #0b0b0b;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    h1 {
+        color: #ffb300;
+        text-align: center;
+    }
+    .box {
+        background: #151515;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    input, select, button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 6px;
+        border: none;
+        font-size: 16px;
+    }
+    button {
+        background: linear-gradient(90deg,#ff9800,#ff5722);
+        color: #000;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+    .result {
+        background: #000;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+        border: 1px solid #ff9800;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🔥 TOP 1 WORLD LEVEL FF SENSITIVITY 🔥</h1>
+
+<div class="box">
+    <label>📱 Phone Name</label>
+    <input type="text" id="phone" placeholder="Example: Redmi / Samsung / iPhone">
+
+    <label>🎯 Headshot Focus</label>
+    <select id="hs">
+        <option value="97">97% (Extreme Pro)</option>
+        <option value="95">95% (Balanced Pro)</option>
+        <option value="90">90% (Safe Pro)</option>
+    </select>
+
+    <label>🎯 Aim Lock Level</label>
+    <select id="aimlock">
+        <option value="100">100% (Hard Lock)</option>
+        <option value="95">95% (Smart Lock)</option>
+    </select>
+
+    <label>🔫 Fire Button Size (%)</label>
+    <input type="number" id="fireBtn" min="40" max="55" value="45">
+</div>
+
+<button onclick="getSensi()">🔥 GET SENSI 🔥</button>
+
+<div class="result" id="output"></div>
+
+<script>
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getSensi() {
+    let phone = document.getElementById("phone").value || "Unknown Device";
+    let hs = parseInt(document.getElementById("hs").value);
+    let aimlock = parseInt(document.getElementById("aimlock").value);
+    let fireBtn = document.getElementById("fireBtn").value;
+
+    // REAL SMART RANDOM SYSTEM
+    let general = random(170, 200);
+    let redDot = random(165, 195);
+    let scope2x = random(150, 180);
+    let scope4x = random(130, 160);
+    let awm = random(90, 120);
+    let freeLook = random(60, 90);
+
+    document.getElementById("output").innerHTML = `
+    🔥 <b>TOP 1 WORLD LEVEL – REAL SENSITIVITY</b> 🔥<br><br>
+    📱 Phone: <b>${phone}</b><br><br>
+
+    🎯 Headshot Rate: <b>${hs}%</b><br>
+    🎯 Aim Head: <b>${aimlock}%</b><br>
+    🎯 Aim Lock: <b>${aimlock}%</b><br>
+    🔻 Recoil: <b>0%</b><br><br>
+
+    ⚙️ <b>FREE FIRE OB51 SETTINGS</b><br>
+    • General: <b>${general}</b><br>
+    • Red Dot: <b>${redDot}</b><br>
+    • 2x Scope: <b>${scope2x}</b><br>
+    • 4x Scope: <b>${scope4x}</b><br>
+    • AWM Scope: <b>${awm}</b><br>
+    • Free Look: <b>${freeLook}</b><br><br>
+
+    🔫 Fire Button Size: <b>${fireBtn}%</b><br><br>
+
+    ✅ Status: <b>REAL • SMART • WORLD LEVEL</b>
+    `;
+}
+</script>
+
+</body>
+</html>

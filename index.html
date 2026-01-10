@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FF TOP 1 Sensitivity Generator</title>
+<style>
+body {
+  background:#0b0b0b;
+  color:#fff;
+  font-family:Arial;
+  padding:20px;
+}
+h1 {color:#00ffcc;}
+input, button {
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  border-radius:8px;
+  border:none;
+}
+button {
+  background:#00ffcc;
+  font-weight:bold;
+}
+.range {font-size:14px;}
+.output {
+  background:#111;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔥 FF TOP 1 WORLD PRO</h1>
+
+<label>📱 Phone Name</label>
+<input id="phone" placeholder="Samsung / Xiaomi / iPhone">
+
+<label>🎯 Headshot Sensitivity (0–200)</label>
+<input type="range" min="0" max="200" value="190" id="head">
+
+<label>🔫 Recoil Control (0–200)</label>
+<input type="range" min="0" max="200" value="2" id="recoil">
+
+<label>🧠 Aim Head Sensitivity</label>
+<input type="range" min="0" max="200" value="198" id="aim">
+
+<label>🔒 Aim Lock Sensitivity</label>
+<input type="range" min="0" max="200" value="195" id="lock">
+
+<label>🔘 Fire Button Size (%)</label>
+<input type="range" min="0" max="100" value="45" id="fire">
+
+<button onclick="generate()">⚡ Generate TOP 1 Link</button>
+
+<div class="output" id="result"></div>
+
+<script>
+function generate(){
+ let phone = phone.value;
+ let link = `https://ff-top1.pro/?phone=${phone}&head=${head.value}&recoil=${recoil.value}&aim=${aim.value}&lock=${lock.value}&fire=${fire.value}`;
+
+ document.getElementById("result").innerHTML =
+ `<b>🔥 YOUR PRO LINK:</b><br>${link}<br><br>
+ 🎯 Headshot Rate: 95–97%<br>
+ 🔫 Recoil: NO RECOIL<br>
+ 🧠 Aim Head: PRO<br>
+ 🔒 Aim Lock: MAX<br>
+ ⚡ WORLD LEVEL TOP 1`;
+}
+</script>
+
+</body>
+</html>
